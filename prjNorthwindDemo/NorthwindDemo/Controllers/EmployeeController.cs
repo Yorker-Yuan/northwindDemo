@@ -1,6 +1,7 @@
 ﻿using NorthwindDemo.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -33,6 +34,26 @@ namespace NorthwindDemo.Controllers
             try
             {
                 db.Employees.Add(emp);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+        }
+
+        public ActionResult AddOrEdit(int id)
+        {
+            var detail = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault();
+            return View(detail);
+        }
+        [HttpPost]
+        public ActionResult AddOrEdit(int id, Employee emp)
+        {
+            try
+            {
+                db.Entry(emp).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
