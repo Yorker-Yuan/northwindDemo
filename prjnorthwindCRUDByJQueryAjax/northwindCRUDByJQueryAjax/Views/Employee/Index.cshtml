@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "列表首頁";
+}
+
+<ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#firstTab">查看所有列表</a></li>
+    <li class="active"><a data-toggle="tab" href="#secondTab">新增</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="firstTab" class="tab-pane fade in">@Html.Action("ViewAll") </div>
+    <div id="secondTab" class="tab-pane fade in active">@*@Html.Action("AddOrEdit")*@ </div>
+</div>
+<!--    使用DataTable -->
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+@*驗證*@
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script>
+            function activateJQueryTable() {
+                $('#employeeTable').DataTable();
+            }
+            $(function () {
+                activateJQueryTable();
+            });
+    </script>
+}

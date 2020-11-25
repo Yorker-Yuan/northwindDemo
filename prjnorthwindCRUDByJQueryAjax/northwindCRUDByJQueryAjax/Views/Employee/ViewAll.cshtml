@@ -10,41 +10,65 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.fName)
+                @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fPosition)
+                @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fOffice)
+                @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.fSalary)
+                @Html.DisplayNameFor(model => model.BirthDate)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomePhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Extension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoPath)
+            </th>
+            <th>功能選單</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fPosition)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fOffice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fSalary)
-                </td>
-                <td>
-                    <a class="btn btn-primary btn-sm" onclick="Edit('@Url.Action("AddOrEdit","Employee",new { id=item.fEmpId})')"><i class="fa fa-pencil fa-lg"></i> </a>
-                    <a class="btn btn-danger btn-sm" onclick="Delete('@Url.Action("Delete","Employee",new { id=item.fEmpId})')"><i class="fa fa-trash fa-lg"></i> </a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Extension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoPath)
+            </td>
+            <td>
+                <a class="btn btn-primary btn-sm" onclick="Edit('@Url.Action("AddOrEdit","Employee",new { id=item.EmployeeID})')"><i class="fa fa-pencil fa-lg"></i> </a>
+                <a class="btn btn-danger btn-sm" onclick="Delete('@Url.Action("Delete","Employee",new { id=item.EmployeeID})')"><i class="fa fa-trash fa-lg"></i> </a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

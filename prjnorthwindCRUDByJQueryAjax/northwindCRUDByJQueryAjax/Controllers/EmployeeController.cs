@@ -9,6 +9,7 @@ namespace northwindCRUDByJQueryAjax.Controllers
 {
     public class EmployeeController : Controller
     {
+        NorthwindEntities db = new NorthwindEntities();
         // GET: Employee
         public ActionResult Index()
         {
@@ -22,7 +23,8 @@ namespace northwindCRUDByJQueryAjax.Controllers
 
         IEnumerable<Employees> GetAllEmployee()
         {
-            throw new NotImplementedException();
+            var details = db.Employees.ToList();
+            return details;
         }
     }
 }
