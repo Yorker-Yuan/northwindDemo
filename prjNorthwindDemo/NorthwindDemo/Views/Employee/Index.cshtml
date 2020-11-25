@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NorthwindDemo.Models.Employee>
+@{
+    ViewBag.Title = "員工資訊列表";
+}
+
+<h2>員工資訊列表</h2>
+
+<a href="@Url.Action("Create","Employee")">新增員工資訊</a>
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.BirthDate)</th>
+        <th>@Html.DisplayNameFor(model => model.Address)</th>
+        <th>@Html.DisplayNameFor(model => model.HomePhone)</th>
+        <th>@Html.DisplayNameFor(model => model.Extension)</th>
+        <th>功能選單</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Extension)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "AddOrEdit", new { id = item.EmployeeID }) |
+                @Html.ActionLink("詳情", "Details", new { id = item.EmployeeID }) |
+                @Html.ActionLink("刪除", "Delete", new { id = item.EmployeeID })
+            </td>
+        </tr>
+    }
+
+</table> 

@@ -11,7 +11,9 @@ namespace NorthwindDemo.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employee
     {
         public Employee()
@@ -20,24 +22,55 @@ namespace NorthwindDemo.Models
         }
     
         public int EmployeeID { get; set; }
+
+        [Required(ErrorMessage = "輸入姓氏")]
+        [DisplayName("姓")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "輸入名字")]
+        [DisplayName("名")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "輸入標題")]
+        [DisplayName("標題")]
         public string Title { get; set; }
+
         public string TitleOfCourtesy { get; set; }
+
+        [DisplayName("生日")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> BirthDate { get; set; }
+
         public Nullable<System.DateTime> HireDate { get; set; }
+
+        [DisplayName("居住地址")]
         public string Address { get; set; }
+
+        [DisplayName("居住城市")]
         public string City { get; set; }
+
+        [DisplayName("居住地區")]
         public string Region { get; set; }
+
+        [DisplayName("郵遞區號")]
         public string PostalCode { get; set; }
+
+        [DisplayName("國籍")]
         public string Country { get; set; }
+
+        [DisplayName("聯繫電話")]
         public string HomePhone { get; set; }
+        [DisplayName("分機")]
         public string Extension { get; set; }
+
+        [DisplayName("照片")]
         public byte[] Photo { get; set; }
         public string Notes { get; set; }
         public Nullable<int> ReportsTo { get; set; }
+
+        [DisplayName("圖檔路徑")]
         public string PhotoPath { get; set; }
-    
+
         public virtual ICollection<Employee> Employees1 { get; set; }
         public virtual Employee Employee1 { get; set; }
     }
