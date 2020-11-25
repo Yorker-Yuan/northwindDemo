@@ -43,9 +43,8 @@
                 @Html.DisplayFor(modelItem => item.Extension)
             </td>
             <td>
-                @Html.ActionLink("編輯", "AddOrEdit", new { id = item.EmployeeID }) |
-                @Html.ActionLink("詳情", "Details", new { id = item.EmployeeID }) |
-                @Html.ActionLink("刪除", "Delete", new { id = item.EmployeeID })
+                @Html.ActionLink("編輯", "AddOrEdit", new { id = item.EmployeeID },new { @class="btn btn-warning"}) |
+                @Html.ActionLink("刪除","Delete", "Employee", new { id = item.EmployeeID},new { @class="btn btn-danger",onclick = "return confirm('確定要刪除嗎?');" })
             </td>
         </tr>
     }

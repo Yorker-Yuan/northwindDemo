@@ -62,5 +62,25 @@ namespace NorthwindDemo.Controllers
                 return View();
             }
         }
+       
+        public ActionResult Delete(int? id)
+        {
+            try
+            {
+                if (id == null)
+                    return RedirectToAction("Index");
+                Employee detail = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault();
+                if (detail != null)
+                { 
+                    db.Employees.Remove(detail);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+        }
     }
 }
