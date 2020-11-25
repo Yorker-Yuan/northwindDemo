@@ -22,5 +22,24 @@ namespace NorthwindDemo.Controllers
             var detail = db.Employees.Where(a=>a.EmployeeID == id).FirstOrDefault();
             return View(detail);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Employee emp)
+        {
+            try
+            {
+                db.Employees.Add(emp);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+        }
     }
 }
