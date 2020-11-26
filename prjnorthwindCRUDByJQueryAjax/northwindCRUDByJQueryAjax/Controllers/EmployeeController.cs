@@ -45,12 +45,12 @@ namespace northwindCRUDByJQueryAjax.Controllers
             {
                 if (emp.fImageUpload != null)
                 {
-                    string fileName = Path.GetFileNameWithoutExtension(emp.fImageUpload.FileName);
+                    string filename = Path.GetFileNameWithoutExtension(emp.fImageUpload.FileName);
                     string extension = Path.GetExtension(emp.fImageUpload.FileName);
                     //合併湊成檔名
-                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    emp.PhotoPath = "~/AppFiles/images/" + fileName;
-                    emp.fImageUpload.SaveAs(Path.Combine(Server.MapPath("~/ AppFiles / images /"),fileName));
+                    filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                    emp.fImagePath = "~/AppFiles/images/" + filename;
+                    emp.fImageUpload.SaveAs(Path.Combine(Server.MapPath("~/AppFiles/images/"), filename));
                 }
                 if (emp.EmployeeID == 0)
                 {   //找不到，則新增
@@ -67,6 +67,21 @@ namespace northwindCRUDByJQueryAjax.Controllers
             catch (Exception e)
             {
                 return Json(new { success = false,message = e.Message },JsonRequestBehavior.AllowGet) ;
+            }
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                Employees emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault();
+                db.Employees.Remove(emp);
+                db.SaveChanges();
+                return Json(new { success = true, html = GlobalClass.RenderRazorViewToString(this, "ViewAll", GetAllEmployee()), message = "成功刪除!!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json(new { success = false, message = e.Message }, JsonRequestBehavior.AllowGet);
             }
         }
     }

@@ -62,9 +62,44 @@ function refreshAddNewTab(resetUrl, showViewTab) {
         url: resetUrl,
         success: function (res) {
             $('#secondTab').html(res);
-            $('ul.nav.nav-tabs a:eq(1)').html('Add New');
+            $('ul.nav.nav-tabs a:eq(1)').html('新增員工資訊');
             if (showViewTab)
                 $('ul.nav.nav-tabs a:eq(0)').tab('show');
         }
     });
+}
+
+//編輯資料
+function Edit(url) {
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function (res) {
+            $('#secondTab').html(res);
+            $('ul.nav.nav-tabs a:eq(1)').html('編輯');
+            $('ul.nav.nav-tabs a:eq(1)').tab('show');
+        }
+    })
+}
+
+//刪除資料
+function Delete(url) {
+    if (confirm('確定要刪除嗎?') == true) {
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            success: function (res) {
+                if (res.success) {
+                    $('#firstTab').html(res.html);
+                    $.notify(res.message, "warn");
+                    if (typeof activateJQueryTable !== 'undefined' && $.isFunction(activateJQueryTable))
+                        activateJQueryTable();
+                }
+                else {
+                    $.notify(res.message, "error");
+                }
+            }
+        })
+    }
 }
