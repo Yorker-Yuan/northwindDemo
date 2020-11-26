@@ -74,7 +74,6 @@ D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryA
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\Newtonsoft.Json.xml
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\Antlr3.Runtime.pdb
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\EntityFramework.resources.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\System.Web.Helpers.resources.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\System.Web.Mvc.resources.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\System.Web.Optimization.resources.dll
@@ -87,3 +86,5 @@ D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryA
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.csproj.CopyComplete
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.pdb
+D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\EntityFramework.SqlServer.dll
+D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\EntityFramework.SqlServer.xml
