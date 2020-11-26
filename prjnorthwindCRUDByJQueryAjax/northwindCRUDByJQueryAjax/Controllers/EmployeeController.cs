@@ -27,7 +27,7 @@ namespace northwindCRUDByJQueryAjax.Controllers
 
         IEnumerable<Employees> GetAllEmployee()
         {
-            var details = db.Employees.ToList();
+            var details = db.Employees.ToList<Employees>();
             return details;
         }
 
@@ -35,7 +35,9 @@ namespace northwindCRUDByJQueryAjax.Controllers
         {
             Employees emp = new Employees();
             if (id != 0)
-                emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault();
+            { 
+                emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault<Employees>();
+            }
             return View(emp);
         }
         [HttpPost]
@@ -49,7 +51,7 @@ namespace northwindCRUDByJQueryAjax.Controllers
                     string extension = Path.GetExtension(emp.fImageUpload.FileName);
                     //合併湊成檔名
                     filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-                    emp.fImagePath = "~/AppFiles/images/" + filename;
+                    emp.PhotoPath = "~/AppFiles/images/" + filename;
                     emp.fImageUpload.SaveAs(Path.Combine(Server.MapPath("~/AppFiles/images/"), filename));
                 }
                 if (emp.EmployeeID == 0)

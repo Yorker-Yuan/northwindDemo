@@ -81,7 +81,6 @@ D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryA
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\System.Web.WebPages.resources.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
-D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.csprojAssemblyReference.cache
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.csproj.CoreCompileInputs.cache
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.csproj.CopyComplete
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.dll

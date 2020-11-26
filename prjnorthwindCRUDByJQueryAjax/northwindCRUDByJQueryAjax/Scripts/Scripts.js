@@ -1,6 +1,4 @@
-﻿import { ajax } from "jquery";
-
-//頁面process
+﻿//頁面process
 $(function () {
     $('#loaderbody').addClass('hide');
 
@@ -30,19 +28,19 @@ function jQueryAjaxPost(form) {
         //通過驗證，準備傳資料
         let ajaxConfig = {
             type: 'POST',
-            uel: form.action,
+            url: form.action,
             data: new FormData(form),   //產生表單物件
             success: function (res) {
                 if (res.success) {
                     $('#firstTab').html(res.html);
                     refreshAddNewTab($(form).attr('data_resetUrl'), true);
-                    $.notify(res.message, "成功送出!!");
+                    $.notify(res.message, "success");
                     //顯示在datatable
                     if (typeof activateJQueryTable !== 'undefined' && $.isFunction(activateJQueryTable))
                         activateJQueryTable();
                 } else {
                     //err.message
-                    $.notify(res.message,"錯誤!!");
+                    $.notify(res.message,"error");
                 }
             }
         }
@@ -62,7 +60,7 @@ function refreshAddNewTab(resetUrl, showViewTab) {
         url: resetUrl,
         success: function (res) {
             $('#secondTab').html(res);
-            $('ul.nav.nav-tabs a:eq(1)').html('新增員工資訊');
+            $('ul.nav.nav-tabs a:eq(1)').html('Add');
             if (showViewTab)
                 $('ul.nav.nav-tabs a:eq(0)').tab('show');
         }
@@ -76,7 +74,7 @@ function Edit(url) {
         url: url,
         success: function (res) {
             $('#secondTab').html(res);
-            $('ul.nav.nav-tabs a:eq(1)').html('編輯');
+            $('ul.nav.nav-tabs a:eq(1)').html('Edit');
             $('ul.nav.nav-tabs a:eq(1)').tab('show');
         }
     })
