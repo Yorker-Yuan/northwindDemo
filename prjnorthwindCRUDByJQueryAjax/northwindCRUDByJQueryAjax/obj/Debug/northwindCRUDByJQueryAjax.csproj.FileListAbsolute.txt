@@ -87,3 +87,4 @@ D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryA
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.pdb
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\EntityFramework.SqlServer.dll
 D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\bin\EntityFramework.SqlServer.xml
+D:\asp.net_mvc\northwindDemo\prjnorthwindCRUDByJQueryAjax\northwindCRUDByJQueryAjax\obj\Debug\northwindCRUDByJQueryAjax.csprojAssemblyReference.cache

@@ -13,7 +13,6 @@ namespace northwindCRUDByJQueryAjax.Controllers
 {
     public class EmployeeController : Controller
     {
-        NorthwindEntities db = new NorthwindEntities();
         // GET: Employee
         public ActionResult Index()
         {
@@ -27,16 +26,23 @@ namespace northwindCRUDByJQueryAjax.Controllers
 
         IEnumerable<Employees> GetAllEmployee()
         {
-            var details = db.Employees.ToList<Employees>();
-            return details;
+            using (NorthwindEntities db =new NorthwindEntities())
+            { 
+                var details = db.Employees.ToList<Employees>();
+
+                return details;
+            }
         }
 
         public ActionResult AddOrEdit(int id = 0)
         {
             Employees emp = new Employees();
             if (id != 0)
-            { 
-                emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault<Employees>();
+            {
+                using (NorthwindEntities db = new NorthwindEntities())
+                { 
+                    emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault<Employees>();
+                }
             }
             return View(emp);
         }
@@ -54,15 +60,19 @@ namespace northwindCRUDByJQueryAjax.Controllers
                     emp.PhotoPath = "~/AppFiles/images/" + filename;
                     emp.fImageUpload.SaveAs(Path.Combine(Server.MapPath("~/AppFiles/images/"), filename));
                 }
-                if (emp.EmployeeID == 0)
-                {   //找不到，則新增
-                    db.Employees.Add(emp);
-                    db.SaveChanges();
-                }
-                else
-                {   //有找到，就更新
-                    db.Entry(emp).State = EntityState.Modified;
-                    db.SaveChanges();
+                using (NorthwindEntities db = new NorthwindEntities())
+                { 
+                    if (emp.EmployeeID == 0)
+                    {   //找不到，則新增
+
+                        db.Employees.Add(emp);
+                        db.SaveChanges();
+                    }
+                    else
+                    {   //有找到，就更新
+                        db.Entry(emp).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
                 }
                 return Json(new { success = true, html = GlobalClass.RenderRazorViewToString(this, "ViewAll", GetAllEmployee()), message = "成功新增!!"  }, JsonRequestBehavior.AllowGet);
             }
@@ -76,9 +86,12 @@ namespace northwindCRUDByJQueryAjax.Controllers
         {
             try
             {
-                Employees emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault();
-                db.Employees.Remove(emp);
-                db.SaveChanges();
+                using (NorthwindEntities db = new NorthwindEntities())
+                { 
+                    Employees emp = db.Employees.Where(a => a.EmployeeID == id).FirstOrDefault();
+                    db.Employees.Remove(emp);
+                    db.SaveChanges();
+                }
                 return Json(new { success = true, html = GlobalClass.RenderRazorViewToString(this, "ViewAll", GetAllEmployee()), message = "成功刪除!!" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
